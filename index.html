@@ -1,1 +1,26 @@
-<h1>Hello,World</h1>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script>
+    function onButtonClick() {
+      let filters = [];
+
+      filters.push({services: ['battery_service']});
+
+      navigator.bluetooth.requestDevice({filters: filters})
+      .then(device => {
+        console.log(device)
+      })
+      .catch(error => {
+        console.log('Argh! ' + error);
+      });
+    }
+
+  </script>
+</head>
+<body>
+  <button onclick="onButtonClick()">Connect</button>
+</body>
+</html>
